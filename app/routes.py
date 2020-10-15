@@ -13,5 +13,6 @@ from app import app
 @app.route('/index')  # view function with 'index' as route URL
 def index():
     return render_template('index.html', title='Accueil')
+
 """
 Jinja2 remplace les {{ ... }}blocs par les valeurs correspondantes, données par les arguments fournis dans l'appel render_template()"""

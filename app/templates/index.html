@@ -1,6 +1,11 @@
 <html>
     <head>
+        <!-- ajout condition sur titre -->
+        {% if title %}
         <title>{{ title }} - GandalfBot</title>
+        {% else %}
+        <title>Bienvenue sur GandalfBot</title>
+        {% endif %}
         <!-- phrase d'accroche -->
         <!-- logo -->
     </head>
