@@ -19,11 +19,11 @@ Run the application: `python3 GandalfBot/gandalfbot.py`
 - [x] Initialize flask app
 - [x] Create templates folder for templates organization
 - [x] Create index.html template
-- [ ] Create base.html in template folder
 - [ ] Add bot presentation with picture and title 
+- [ ] Create base.html in template folder
+- [ ] Add footer with name and github link
 - [ ] Add input text field for the questions 
 - [ ] Add input button to send questions 
-- [ ] Add footer with name and github link
 - [ ] Create static folder for style organisation
 - [ ] Add style for elements on index template
 - [ ] Add style link to base.html
