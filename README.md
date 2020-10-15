@@ -17,8 +17,8 @@ Run the application: `python3 GandalfBot/gandalfbot.py`
 
 ### Checklist
 - [x] Initialize flask app
-- [ ] Create templates folder for templates organization
-- [ ] Create index.html template
+- [x] Create templates folder for templates organization
+- [x] Create index.html template
 - [ ] Create base.html in template folder
 - [ ] Add bot presentation with picture and title 
 - [ ] Add input text field for the questions 
