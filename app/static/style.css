@@ -40,7 +40,7 @@ h2 {
 }
 
 .questions {
-    margin: auto;
+    margin: auto; /*centrer le form 'questions'*/
     padding: 20px;
     margin-bottom: 50px;
     width: 700px;
@@ -57,14 +57,22 @@ h2 {
     border-radius: 5px;
 }
 
+footer {
+    text-align: center;
+}
+
+#github_icon, #linkedin_icon {
+    width: 30px;
+    height: 30px;
+}
+
+/**/
 /*
 #logo_gandalf {
 
 }
 
-footer {
-    margin: auto;
-}
+
 
 COULEURS
  doré : #ebb322
