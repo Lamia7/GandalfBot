@@ -1,36 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <!-- Ajout condition sur titre -->
-        {% if title %}
-        <title>{{ title }} - GandalfBot</title>
-        {% else %}
-        <title>Bienvenue sur GandalfBot</title>
-        {% endif %}
-    </head>
-
-    <body>
+{% extends 'base.html' %}
+{% block content %}
     <header>
         <!--<img src="" alt="logo_gandalf">-->
         <h1>GandalfBot</h1>
         <h2>Quels lieux t'intriguent ? Dis-le moi et je t'en parlerai ...</h2>
     </header>
 
-    <!--
-    <nav>
-        <ul>
-            <li><a href="">Accueil</a></li>
-            <li><a href="">Présentation</a></li>
-        </ul>
-    </nav>
-    -->
-
      <section>Conversation</section>
-    </body>
-
-    <footer>
-        <!-- mon nom prénom -->
-        <!-- lien github et linkedin-->
-    </footer>
-</html>
+{% endblock %}

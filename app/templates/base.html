@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <!-- Ajout condition sur titre -->
+        {% if title %}
+        <title>{{ title }} - GandalfBot</title>
+        {% else %}
+        <title>Bienvenue sur GandalfBot</title>
+        {% endif %}
+    </head>
+
+    <body>
+
+    <!--
+    <nav>
+        <ul>
+            <li><a href="">Accueil</a></li>
+            <li><a href="">Présentation</a></li>
+        </ul>
+    </nav>
+    -->
+    {% block content %}
+    {% endblock %}
+
+    </body>
+
+    <footer>
+        <!-- mon nom prénom -->
+        <!-- lien github et linkedin-->
+    </footer>
+</html>
