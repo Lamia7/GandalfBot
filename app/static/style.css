@@ -1,0 +1,34 @@
+body {
+    background-color: green;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    font-size: large;
+    text-align: center;
+    color: #ebb322;
+    font-family: Verdana, Arial;
+}
+/* a corriger */
+.chatbox {
+    background-color: blue;
+}
+
+.user_input {
+    background-color: grey;
+}
+
+/*
+#logo_gandalf {
+
+}
+
+COULEURS
+ doré : #ebb322
+ bleu : #92cae9
+ beige-gris: #e8e0cc
+ vert-comté: #b4ca00
+  */
