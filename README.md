@@ -22,10 +22,11 @@ Run the application: `python3 GandalfBot/gandalfbot.py`
 - [x] Add bot presentation with place for picture and title 
 - [x] Create base.html in template folder and structure block extends
 - [x] Add footer with name and github link
-- [ ] Add static folder
+- [x] Create static folder for style organisation
+- [x] Add image as bot avatar
+- [x] Add image as future button 
 - [ ] Add input text field for the questions 
 - [ ] Add input button to send questions 
-- [ ] Create static folder for style organisation
 - [ ] Add style for elements on index template
 - [ ] Add style link to base.html
 - [ ] Create partials folder for forms
