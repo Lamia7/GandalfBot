@@ -1,5 +1,5 @@
 body {
-    background-color: green;
+    background-color: #e8e0cc;
 }
 
 h1 {
@@ -9,16 +9,43 @@ h1 {
 h2 {
     font-size: large;
     text-align: center;
-    color: #ebb322;
+    color: grey;
     font-family: Verdana, Arial;
 }
+
 /* a corriger */
 .chatbox {
-    background-color: blue;
+    margin: auto;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 900px;
+    border: 2px #917c6f solid;
+    border-radius: 10px;
+    background-color: #e1e5d6;
+    align-content: space-around;
+}
+
+.user_question {
+    background-color: white;
+    margin: 10px 0px 10px 0px;
+    border-radius: 10px;
+    justify-content: flex-end;
+}
+
+.botreply {
+    background-color: grey;
+    margin: 10px 0px 10px 0px;
+    border-radius: 10px;
+    justify-content: flex-start;
 }
 
 .user_input {
-    background-color: grey;
+    margin: auto;
+    padding: 20px;
+    margin-bottom: 50px;
+    width: 700px;
+    border: 2px #77655b solid;
+    border-radius: 10px;
 }
 
 /*
@@ -26,9 +53,17 @@ h2 {
 
 }
 
+footer {
+    margin: auto;
+}
+
 COULEURS
  doré : #ebb322
  bleu : #92cae9
  beige-gris: #e8e0cc
  vert-comté: #b4ca00
+
+FLEXBOX pour un conteneur
+ flex-direction: column;   aligner verticalement
+ align-content: space-around;  espacer questions/reponses dans chatbox
   */
