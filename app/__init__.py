@@ -2,5 +2,5 @@ from flask import Flask
 
 app = Flask(__name__)
 
-from app import routes
-# routes will import app instance
+from app import views
+# views will import app instance
