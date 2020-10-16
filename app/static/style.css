@@ -39,13 +39,22 @@ h2 {
     justify-content: flex-start;
 }
 
-.user_input {
+.questions {
     margin: auto;
     padding: 20px;
     margin-bottom: 50px;
     width: 700px;
+    height: 150px;
     border: 2px #77655b solid;
     border-radius: 10px;
+}
+
+.user_input {
+    margin:auto;
+    margin: 20px 0px 20px;
+    width: 50%;
+    height: 50px;
+    border-radius: 5px;
 }
 
 /*

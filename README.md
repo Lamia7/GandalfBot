@@ -24,9 +24,9 @@ Run the application: `python3 GandalfBot/gandalfbot.py`
 - [x] Add footer with name and github link
 - [x] Create static folder for style organisation
 - [x] Add image as bot avatar
-- [x] Add image as future button 
-- [ ] Add input text field for the questions 
-- [ ] Add input button to send questions 
+- [ ] Add image as future button 
+- [x] Add form input text field for the questions 
+- [x] Add input button to send questions 
 - [ ] Add style for elements on index template
 - [ ] Add style link to base.html
 - [ ] Create partials folder for forms

@@ -16,8 +16,11 @@
         <div class="botreply">Gandalf répond ici</div>
     </div>
 
-    <div class="user_input">
-        <p>Question</p>
-        <img src="static/assets/door.png" alt="button_send" id="door_button" />
-    </div>
+    <form class="questions" method="post">
+        <legend>De quel endroit souhaites-tu que je te parle ?</legend>
+        <input class="user_input" type="text" maxlength="160" placeholder="Où est Manhattan ?" autofocus required> <br>
+        <!--<img src="static/assets/door.png" alt="button_send" id="door_button" />-->
+        <button>Envoyer</button>
+    </form>
+
 {% endblock %}
