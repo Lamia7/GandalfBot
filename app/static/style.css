@@ -31,14 +31,14 @@ h2 {
     align-content: space-around;
 }
 
-.user_question {
+#user_question {
     background-color: white;
     margin: 10px 0px 10px 0px;
     border-radius: 10px;
     justify-content: flex-end;
 }
 
-.botreply {
+#botreply {
     background-color: grey;
     margin: 10px 0px 10px 0px;
     border-radius: 10px;
@@ -55,11 +55,11 @@ h2 {
     border-radius: 10px;
 }
 
-.user_input {
+#user_input {
     margin:auto;
     margin: 20px 0px 20px;
-    width: 50%;
-    height: 50px;
+    width: 100%;
+    height: 80%;
     border-radius: 5px;
 }
 
@@ -67,10 +67,15 @@ footer {
     text-align: center;
 }
 
-#github_icon, #linkedin_icon {
+#social_networks {
     width: 30px;
     height: 30px;
 }
+/*#github_icon, #linkedin_icon {
+#social_networks {
+    width: 30px;
+    height: 30px;
+}*/
 
 
 /**/

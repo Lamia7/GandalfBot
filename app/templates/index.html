@@ -6,16 +6,24 @@
         <h2>Quels lieux t'intriguent ? Dis-le moi et je t'en parlerai ...</h2>
     </header>
 
-    <div class="chatbox">La conversation se passe ici
-        <div class="user_question">Aperçu de ta question</div>
-        <div class="botreply">Gandalf répond ici</div>
-    </div>
+    <div class="container">
+        <div class="row chatbox">
+            <div class="col-lg-4 col-12" id="user_question">Aperçu de ta question</div>
+            <div class="col-lg-4 col-12" id="botreply">Gandalf répond ici</div>
+        </div>
 
-    <form class="questions" method="post">
-        <legend>De quel endroit souhaites-tu que je te parle ?</legend>
-        <input class="user_input" type="text" maxlength="160" placeholder="Où est Manhattan ?" autofocus required> <br>
-        <!--<img src="static/assets/door.png" alt="button_send" id="door_button" />-->
-        <button>Envoyer</button>
-    </form>
+        <form class="row questions" method="post">
+            <legend>De quel endroit souhaites-tu que je te parle ?</legend>
+            <div class="row">
+                <div class="col-lg-10 col-12">
+                    <input id="user_input" type="text" maxlength="160" placeholder="Où est Manhattan ?" autofocus required> <br>
+                </div>
+                    <!--<img src="static/assets/door.png" alt="button_send" id="door_button" />-->
+                <div class="col-lg-2 col-12">
+                    <button>Envoyer</button>
+                </div>
+            </div>
+        </form>
+    </div>
 
 {% endblock %}
