@@ -75,14 +75,15 @@ footer {
 }
 
 #social_networks {
+    display-flex;
+    justify-content: center;
+}
+
+#github_icon, #linkedin_icon {
     width: 30px;
     height: 30px;
 }
-/*#github_icon, #linkedin_icon {
-#social_networks {
-    width: 30px;
-    height: 30px;
-}*/
+
 
 
 /**/
