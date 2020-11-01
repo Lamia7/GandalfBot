@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
     <header>
-        <div>
-            <img src="static/assets/gandalf.png" alt="logo_gandalf" id="logo_gandalf" />
-            <h1>GandalfBot</h1>
-            <h2>Quels lieux t'intriguent ? Dis-le moi et je t'en parlerai ...</h2>
+        <div id="header_container">
+            <img class="col-lg-2 col-12" src="static/assets/gandalf.png" alt="logo_gandalf" id="logo_gandalf" />
+            <h1 class="col-lg-10 col-12">GandalfBot</h1>
+            <!--<h2>Quels lieux t'intriguent ? Dis-le moi et je t'en parlerai ...</h2>-->
         </div>
 
     </header>
@@ -20,7 +20,8 @@
 
         </div>
 
-        <form class="row questions" method="post">
+        <!-- <form class="row questions" method="post"> -->
+        <form class="row questions">
             <legend>De quel endroit souhaites-tu que je te parle ?</legend>
             <div class="row">
                 <div class="col-lg-10 col-12">
@@ -28,7 +29,7 @@
                 </div>
                     <!--<img src="static/assets/door.png" alt="button_send" id="door_button" />-->
                 <div class="col-lg-2 col-12">
-                    <button>Envoyer</button>
+                    <button class="send_btn">Envoyer</button>
                 </div>
             </div>
         </form>
