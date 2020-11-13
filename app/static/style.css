@@ -50,7 +50,7 @@ h2 {
     /*flex-direction: row-reverse;  on the right */
 }
 
-#botreply, #botreply2 {
+#bot_reply, #bot_reply2 {
     background-color: grey;
     margin: 10px 0px 10px 0px;
     border-radius: 10px;

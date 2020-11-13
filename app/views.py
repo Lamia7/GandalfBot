@@ -27,8 +27,16 @@ def result():
     user_input = request.get_data('user_input').decode()  # decode unicode
     print(user_input)
     response = change_to_upper(user_input)  # treatment on data with function (making user input uppercase)
-    return jsonify(response)  # jsonify is making json and puts it into an http response
+    #envoyer à parser, puis au wikipedia cme au dessus
+    #renvoyer la réponse de wiki comme ci dessous
+
+    print(f"JSONIFY RESPONSE : {jsonify(response)}")
+    print(f"RESPONSE SANS JSONIFY: {response}")  # no need to jsonify
+    print(f"RESPONSE[text-changed]: {response['text-changed']}")
+    #return jsonify(response)  # jsonify is making json and puts it into an http response
+    return response['text-changed']
     # return render_template('index.html', )
+
 
 
 """
