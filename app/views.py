@@ -14,14 +14,13 @@ from utils import change_to_upper
 @app.route('/index')  # view function with 'index' as route URL
 def index():
     # render_template change some elements ... param: variables
-    return render_template('index.html', title='Accueil', message='coucou')
+    return render_template('index.html', title='Accueil')
 
 
 @app.route('/result', methods=["POST"])  # route will be accessed by POST method
 def result():
     """Method result called when user submit his input that help us to retrieve data from JS to Python
     result view recieves an HTTP request and sends an HTTP response"""
-    #user_input = request.form["user_input"]
 
     # object request allows me to access to data
     user_input = request.get_data('user_input').decode()  # decode unicode
@@ -29,13 +28,7 @@ def result():
     response = change_to_upper(user_input)  # treatment on data with function (making user input uppercase)
     #envoyer à parser, puis au wikipedia cme au dessus
     #renvoyer la réponse de wiki comme ci dessous
-
-    print(f"JSONIFY RESPONSE : {jsonify(response)}")
-    print(f"RESPONSE SANS JSONIFY: {response}")  # no need to jsonify
-    print(f"RESPONSE[text-changed]: {response['text-changed']}")
-    #return jsonify(response)  # jsonify is making json and puts it into an http response
     return response['text-changed']
-    # return render_template('index.html', )
 
 
 
