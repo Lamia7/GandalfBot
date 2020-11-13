@@ -27,6 +27,12 @@ __(PYTHON)__ : API sends the response to front: JS <br>
 __(JS)__ : sends response to HTML <br>
 __(HTML)__ : shows reply
 
+### Fonctionnalités
++ Interactions en AJAX : l'utilisateur envoie sa question en appuyant sur entrée et la réponse s'affiche directement dans l'écran, sans recharger la page.
++ Données via l'API de Google Maps et celle de Media Wiki.
++ Si l'utilisateur charge de nouveau la page, tout l'historique est perdu, pas de sauvegarde.
++ Possibilité d'inventer plusieurs réponses différentes de la part de GrandPy mais ce n'est pas une obligation.
+
 ### Checklist
 - [x] Initialize flask app
 - [x] Create templates folder for templates organization
@@ -42,8 +48,11 @@ __(HTML)__ : shows reply
 - [x] Add style for elements on index template
 - [x] Add style link to base.html
 - [x] Add route to access with POST method (when question is submitted)
-- [ ] Get question asked (from front to back-end) 
+- [x] Get question asked (from front to back-end) 
 - [ ] Add parser to analyze question 
+- [ ] Make request to wikimedia API
+- [ ] Use parser on user_input
+- [ ] Retrieve wikimedia API response and send it to front
 - [ ] Create partials folder for forms
 - [ ] Add _form.html to partials folder
 - [ ] Improve style (input, responsive, font, sizes...)
