@@ -32,8 +32,8 @@ class Parser:
         return user_input
 
     def cut_question(self, user_input):
-        """words_list = user_input.split()"""
-        pass
+        """Cutdown user_input into words"""
+        return user_input.split()
 
     def analyze_words(self):
         pass
