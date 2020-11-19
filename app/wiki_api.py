@@ -6,14 +6,14 @@ Module test pour la récupération des données de l'API wikimedia
 
 import requests
 
-from config import API_URL, PAYLOAD
+from config import WIKI_API_URL, PAYLOAD
 
 
 class Wikiwrapper:
 
     def __init__(self):
         # variable contenant la requête, renvoie 200 si ok
-        result = requests.get(API_URL, PAYLOAD)  # requests.get(url, params, kwargs)
+        result = requests.get(WIKI_API_URL, PAYLOAD)  # requests.get(url, params, kwargs)
 
         # mettre en json
         json_result = result.json()

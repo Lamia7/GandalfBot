@@ -3,7 +3,7 @@ Configuration file to optimize other files
 """
 
 # -- WIKI API -- #
-API_URL = "https://fr.wikipedia.org/w/api.php?"
+WIKI_API_URL = "https://fr.wikipedia.org/w/api.php?"
 PAYLOAD = {"action": "query",
            "format": "json",
            "list": "search",
