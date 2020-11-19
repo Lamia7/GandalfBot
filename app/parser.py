@@ -10,6 +10,8 @@
 """
 from unidecode import unidecode
 
+from config import PUNCTUATION
+
 
 class Parser:
 
@@ -24,10 +26,9 @@ class Parser:
 
     def delete_punctuation(self, user_input):
         """Removes punctuation from user input"""
-        punctuation = ["'", '"', ",", ".", "!", ":", ";", "?"]
 
         for char in user_input:
-            if char in punctuation:
+            if char in PUNCTUATION:
                 user_input = user_input.replace(char, " ")
         return user_input
 

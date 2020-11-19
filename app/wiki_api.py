@@ -6,14 +6,7 @@ Module test pour la récupération des données de l'API wikimedia
 
 import requests
 
-#https://fr.wikipedia.org/w/api.php?action=query&format=json&list=search&prop=info&srsearch=reims&srprop=snippet
-API_URL = "https://fr.wikipedia.org/w/api.php?"
-PAYLOAD = {"action": "query",
-           "format": "json",
-           "list": "search",
-           "prop": "info",
-           "srprop": "snippet",
-           "srsearch": "barcelone"}
+from config import API_URL, PAYLOAD
 
 
 class Wikiwrapper:
@@ -36,3 +29,12 @@ class Wikiwrapper:
 
 
 wikiwrap = Wikiwrapper()
+
+"""https://fr.wikipedia.org/w/api.php?action=query&format=json&list=search&prop=info&srsearch=reims&srprop=snippet
+API_URL = "https://fr.wikipedia.org/w/api.php?"
+PAYLOAD = {"action": "query",
+           "format": "json",
+           "list": "search",
+           "prop": "info",
+           "srprop": "snippet",
+           "srsearch": "barcelone"}"""
