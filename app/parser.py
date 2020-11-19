@@ -10,7 +10,7 @@
 """
 from unidecode import unidecode
 
-from config import PUNCTUATION
+from config import PUNCTUATION, STOP_WORDS
 
 
 class Parser:
@@ -36,12 +36,32 @@ class Parser:
         """Cutdown user_input into words"""
         return user_input.split()
 
-    def analyze_words(self):
-        pass
+    def delete_stop_words(self, user_input):
+        """
+        PROBLEME : ne supprime pas certains STOP words (voir exemple de test)
+        :param user_input:
+        :return: sentence with key words & without stop words
+        """
+        # print(type(user_input))
+        words_list = user_input.split()
+        for word in words_list:
+            if word in STOP_WORDS:
+                # print(word)
+                words_list.remove(word)
+        simple_sentence = ' '.join(words_list)
+        return simple_sentence
 
-    def delete_stop_words(self):
-        pass
 
+
+"""
+def delete_stop_words(user_input):
+    print(type(user_input))
+    for word in user_input:
+        if word in STOP_WORDS:
+            print(word)
+            user_input.remove(word)
+    return user_input
+"""
 
 """
 # testing delete_accents method with unidecode library
@@ -64,4 +84,11 @@ phrase_no_punc = delete_punctuation(phrase)
 phrase_no_punc2 = delete_punctuation(phrase2)
 print(f"Phrase 1: {phrase_no_punc} \n"
       f"Phrase 2: {phrase_no_punc2}")
+      
+# testing delete_stop_words method
+phrase_list = ['enfin', 'sais', 'tu', 'ou', 'est', 'paris']
+phrase = "Enfin sais tu ou est paris"
+new = delete_stop_words(phrase)
+print(new)
+#problème: me renvoie : E'nfin sais ou paris' AU LIEU DE 'sais paris'
 """
