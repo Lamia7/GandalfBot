@@ -4,10 +4,10 @@ Module that contains routes
 - view function : functions that will handle app routes
 - they are mapped to 1 or several URL routes so that Flask knows what to execute when a URL is requested
 """
-from flask import render_template, jsonify, request
+from flask import render_template, request
 
 from app import app
-from utils import change_to_upper
+from app.utils import change_to_upper
 
 
 @app.route('/')  # view function with route URL
