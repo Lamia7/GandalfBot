@@ -3,6 +3,10 @@ Configuration file to optimize other files
 """
 
 # -- WIKI API -- #
+GEO_API_URL = "https://api.mapbox.com/geocoding/v5/mapbox.places/"
+TOKEN = "token"
+
+# -- WIKI API -- #
 WIKI_API_URL = "https://fr.wikipedia.org/w/api.php?"
 PAYLOAD = {"action": "query",
            "format": "json",
