@@ -13,22 +13,40 @@ class Wikiwrapper:
 
     def __init__(self):
         # variable contenant la requête, renvoie 200 si ok
-        result = requests.get(WIKI_API_URL, PAYLOAD)  # requests.get(url, params, kwargs)
+        #result = requests.get(WIKI_API_URL, PAYLOAD)  # requests.get(url, params, kwargs)
+        result = requests.get("https://fr.wikipedia.org/w/api.php?action=query&format=json&ggscoord=48.85658|2.35183&generator=geosearch&prop=extracts|extlinks&titles=paris&explaintext")
 
         # mettre en json
         json_result = result.json()
         # afficher résultat 200
         print(json_result)
-        # ds dico query, le dico search
-        result_search = json_result['query']
-        result_search2 = result_search['search']
-        result_search3 = result_search2[0]['snippet']
-        print(f"RESULTAT QUERY: {result_search} \n"
-              f"RESULTAT SEARCH : {result_search2} \n"
-              f"RESULTAT PREMIER SNIPPET : {result_search3} \n")
+
+        # ds dico query, le dico pages
+        pages = json_result['query']['pages']  # access to pages from result json
+        print(type(pages))  # dict
+        pages = (list(pages.values()))  # convert values of pages into list of dict
+        print(pages)
+        print(type(pages))  # list
+
+        # get title's value from first dict
+        title = pages[0]['title']
+        print(f"TITLE: {title}")
+
+        # get extract's value
+        extract = pages[0]['extract']
+        print(type(extract))
+        #print(f"EXTRACT: {extract}")
+        # limit caract of extract's value
+        resume = extract[0:300]
+        print(f"RESUME: {resume}")
+        print(type(resume))
+
+        # get wikipedia link
 
 
 wikiwrap = Wikiwrapper()
+
+
 
 """https://fr.wikipedia.org/w/api.php?action=query&format=json&list=search&prop=info&srsearch=reims&srprop=snippet
 API_URL = "https://fr.wikipedia.org/w/api.php?"
@@ -37,4 +55,8 @@ PAYLOAD = {"action": "query",
            "list": "search",
            "prop": "info",
            "srprop": "snippet",
-           "srsearch": "barcelone"}"""
+           "srsearch": "barcelone"}
+           
+           
+"ggscoord" = longitude|latitude
+"""
