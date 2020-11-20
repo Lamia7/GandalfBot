@@ -26,6 +26,7 @@ class Wikiwrapper:
                    "exsentences": 3,  # how sentences to return
                    "inprop": "url",  # get url (added info to prop for this)
                    }
+
         # variable contains request result
         result = requests.get(WIKI_API_URL, payload)
 
@@ -42,7 +43,6 @@ class Wikiwrapper:
             description = pages[0]['extract']  # get extract's value
             url = pages[0]['fullurl']  # get wikipedia link
 
-            #return title, description, url
             # Return a json
             wiki_details = {
                 "title": title,
@@ -54,9 +54,6 @@ class Wikiwrapper:
             return wiki_details
 
         else:
-            #print(f"Une erreur s'est produite: {result.status_code}")
-            # error is a tuple with 3 elements, like result
-            #err = (f"Une erreur s'est produite.", "Plus d'informations:", f"{result.status_code}")
 
             # Return a json
             return {

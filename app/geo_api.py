@@ -12,10 +12,8 @@ from config import GEO_API_URL, TOKEN
 class GeoWrapper:
 
     def __init__(self):
-    #def __init__(self, query):
         self.latitude = None
         self.longitude = None
-        #self.get_coordinates(query)
 
     def get_coordinates(self, query):
 
@@ -37,8 +35,6 @@ class GeoWrapper:
 
         return self.longitude, self.latitude
 
-
 # testing with paris as query
 #geo = GeoWrapper()
 #print(geo.get_coordinates("tour eiffel"))
-
