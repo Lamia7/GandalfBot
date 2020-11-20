@@ -18,17 +18,18 @@ from app.wiki_api import Wikiwrapper
 class Parser:
 
     def __init__(self):
+        #self.user_input = user_input
         self.user_input = None
 
     def get_place(self, user_input):
         """Find place"""
-        #mapbox_api to get coordinates
+        # Get coordinates from mapbox api
         geowrapper = GeoWrapper()
         coordinates = geowrapper.get_coordinates(user_input)
-
         longitude = coordinates[0]
         latitude = coordinates[1]
 
+        # Get info from wiki api
         #wikiwrapper = Wikiwrapper(48.85658, 2.35183)
         #wikiwrapper = Wikiwrapper(coordinates)
         wikiwrapper = Wikiwrapper(longitude, latitude)
@@ -60,15 +61,40 @@ class Parser:
         :return: sentence with key words & without stop words
         """
         # print(type(user_input))
-        words_list = user_input.split()
-        for word in words_list:
+        #words_list = user_input.split()
+        #for word in words_list:
+            #if word in STOP_WORDS:
+                # print(word)
+                #words_list.remove(word)
+        #simple_sentence = ' '.join(words_list)
+        #return simple_sentence
+
+        for word in user_input:
             if word in STOP_WORDS:
                 # print(word)
-                words_list.remove(word)
-        simple_sentence = ' '.join(words_list)
+                user_input.remove(word)
+        simple_sentence = ' '.join(user_input)
         return simple_sentence
 
 
+question = "Sais tu où se trouve Paris ?"
+parser = Parser()
+#print(f"PARSER: {parser}")
+
+question_no_acc = parser.delete_accents(question)
+print(f"QUESTION_NO_ACC: {question_no_acc}")
+
+question_lower = parser.make_lower_case(question_no_acc)
+print(f"QUESTION_LOWER: {question_lower}")
+
+question_no_punc = parser.delete_punctuation(question_lower)
+print(f"QUESTION_NO_PUNC: {question_no_punc}")
+
+question_words = parser.cut_question(question_no_punc)
+print(f"QUESTION_WORDS_LIST: {question_words}")
+
+final_question = parser.delete_stop_words(question_words)
+print(f"FINAL_QUESTION: {final_question}")
 
 """
 def delete_stop_words(user_input):
@@ -78,9 +104,9 @@ def delete_stop_words(user_input):
             print(word)
             user_input.remove(word)
     return user_input
-"""
 
-"""
+
+
 # testing delete_accents method with unidecode library
 test = "voilà l'été !"
 test_sans_accent = unidecode(test)
