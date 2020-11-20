@@ -14,14 +14,10 @@ class Wikiwrapper:
     def __init__(self, longitude, latitude):
         self.longitude = longitude
         self.latitude = latitude
-        #self.get_wiki_pages()
-        #self.title = ""
-        #self.description = ""
-        #self.url = ""
 
-    def get_wiki_pages(self):
+    def get_wiki_info(self):
 
-        PAYLOAD = {"action": "query",
+        payload = {"action": "query",
                    "format": "json",
                    "ggscoord": f"{self.longitude}|{self.latitude}",
                    "generator": "geosearch",
@@ -31,10 +27,7 @@ class Wikiwrapper:
                    "inprop": "url",  # get url (added info to prop for this)
                    }
         # variable contains request result
-        result = requests.get(WIKI_API_URL, PAYLOAD)
-        #result = requests.get("https://fr.wikipedia.org/w/api.php?action=query&format=json&ggscoord=48.85658|2.35183&generator=geosearch&prop=extracts|info&explaintext&exsentences=3&inprop=url&titles=paris")
-
-        test = ""
+        result = requests.get(WIKI_API_URL, payload)
 
         # if request works
         if result.status_code == 200:
@@ -45,30 +38,52 @@ class Wikiwrapper:
             pages = json_result['query']['pages']  # access to pages from result json
             pages = (list(pages.values()))  # convert values of pages into list of dict
 
-            # get title's value from first dict
-            title = pages[0]['title']
+            title = pages[0]['title']  # get title's value from first dict
+            description = pages[0]['extract']  # get extract's value
+            url = pages[0]['fullurl']  # get wikipedia link
 
-            # get extract's value
-            description = pages[0]['extract']
+            #return title, description, url
+            # Return a json
+            wiki_details = {
+                "title": title,
+                "description": description,
+                "url": url
+            }
+            print(wiki_details)
 
-            # get wikipedia link
-            url = pages[0]['fullurl']
-
-            return title, description, url
+            return wiki_details
 
         else:
             #print(f"Une erreur s'est produite: {result.status_code}")
             # error is a tuple with 3 elements, like result
-            err = (f"Une erreur s'est produite.", "Plus d'informations:", f"{result.status_code}")
-            return err
+            #err = (f"Une erreur s'est produite.", "Plus d'informations:", f"{result.status_code}")
+
+            # Return a json
+            return {
+                "ERREUR :": result.status_code
+            }
 
 
 #test
-wikiwrap = Wikiwrapper(48.85658, 2.35183)
+#wikiwrapper = Wikiwrapper(48.85658, 2.35183)
+#print(wikiwrapper.get_wiki_info())
 
-print(f"TITRE: {wikiwrap.get_wiki_pages()[0]}\n"
-      f"DESCRIPTION: {wikiwrap.get_wiki_pages()[1]}\n"
-      f"URL: {wikiwrap.get_wiki_pages()[2]}")
+
+"""
+            # Return a json
+            wiki_details = {
+                "title": title,
+                "description": description,
+                "url": url
+            }
+            print(wiki_details)
+
+            return wiki_details
+
+
+print(f"TITRE: {wikiwrapper.get_wiki_info()[0]}\n"
+      f"DESCRIPTION: {wikiwrapper.get_wiki_info()[1]}\n"
+      f"URL: {wikiwrapper.get_wiki_info()[2]}")"""
 
 """
 API_URL = "https://fr.wikipedia.org/w/api.php?"
@@ -84,4 +99,6 @@ PAYLOAD = {"action": "query",
            
            
 "ggscoord" = longitude|latitude
+
+#result = requests.get("https://fr.wikipedia.org/w/api.php?action=query&format=json&ggscoord=48.85658|2.35183&generator=geosearch&prop=extracts|info&explaintext&exsentences=3&inprop=url&titles=paris")
 """

@@ -10,11 +10,14 @@ TOKEN = "token"
 WIKI_API_URL = "https://fr.wikipedia.org/w/api.php?"
 PAYLOAD = {"action": "query",
            "format": "json",
-           "list": "search",
-           "prop": "info",
-           "srprop": "snippet",
-           "srsearch": "barcelone"}
-
+           "ggscoord": "48.85658|2.35183",
+           "generator": "geosearch",
+           "prop": "extracts|info",
+           "explaintext": True,  # convert HTML to plain text
+           "exsentences": 3,  # how sentences to return
+           "inprop": "url",  # get url (added info to prop for this)
+           "titles": "barcelone"
+           }
 
 # -- PARSER -- #
 PUNCTUATION = ["'", '"', ",", ".", "!", ":", ";", "?"]

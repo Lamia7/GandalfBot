@@ -11,12 +11,29 @@
 from unidecode import unidecode
 
 from config import PUNCTUATION, STOP_WORDS
+from app.geo_api import GeoWrapper
+from app.wiki_api import Wikiwrapper
 
 
 class Parser:
 
     def __init__(self):
-        pass
+        self.user_input = None
+
+    def get_place(self, user_input):
+        """Find place"""
+        #mapbox_api to get coordinates
+        geowrapper = GeoWrapper()
+        coordinates = geowrapper.get_coordinates(user_input)
+
+        longitude = coordinates[0]
+        latitude = coordinates[1]
+
+        #wikiwrapper = Wikiwrapper(48.85658, 2.35183)
+        #wikiwrapper = Wikiwrapper(coordinates)
+        wikiwrapper = Wikiwrapper(longitude, latitude)
+        wiki_details = wikiwrapper.get_wiki_info()
+        return wiki_details
 
     def delete_accents(self, user_input):
         return unidecode(user_input)
