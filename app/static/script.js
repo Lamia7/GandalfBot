@@ -11,8 +11,10 @@ function sendInput(message) {
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) { // or 'this.' to represent 'xhr'
             let response = JSON.parse(xhr.responseText) // parsing text response into JSON
+            bot_reply = response['description']
+
              // displays bot_reply to chatbox
-            document.querySelector('#bot_reply').textContent = response;
+            document.querySelector('#bot_reply').textContent = bot_reply;
         } else {
         console.log('Il y a eu un problème.');
         }

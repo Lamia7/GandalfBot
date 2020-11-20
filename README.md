@@ -50,10 +50,13 @@ __(HTML)__ : shows reply
 - [x] Add route to access with POST method (when question is submitted)
 - [x] Get question asked (from front to back-end) 
 - [ ] Add parser to analyze question 
-- [ ] Make request to wikimedia API
+- [x] Make request to wikimedia API
 - [ ] Use parser on user_input
-- [ ] Retrieve wikimedia API response and send it to front
+- [x] Retrieve wikimedia API response and send it to front
 - [ ] Create partials folder for forms
 - [ ] Add _form.html to partials folder
 - [ ] Improve style (input, responsive, font, sizes...)
+- [ ] Resize avatar image when smaller screen (responsive)
+
 - [ ] Add image as future button (optional)
+- [ ] Use regex optional

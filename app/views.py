@@ -7,7 +7,11 @@ Module that contains routes
 from flask import render_template, request
 
 from app import app
-from app.utils import change_to_upper
+from app.parser import Parser
+#from app.utils import change_to_upper
+
+
+parser = Parser()
 
 
 @app.route('/')  # view function with route URL
@@ -25,10 +29,13 @@ def result():
     # object request allows me to access to data
     user_input = request.get_data('user_input').decode()  # decode unicode
     print(user_input)
-    response = change_to_upper(user_input)  # treatment on data with function (making user input uppercase)
+    #response = change_to_upper(user_input)  # treatment on data with function (making user input uppercase)
     #envoyer à parser, puis au wikipedia cme au dessus
     #renvoyer la réponse de wiki comme ci dessous
-    return response['text-changed']
+    #return response['text-changed']
+
+    response = parser.get_place(user_input)
+    return response
 
 
 
