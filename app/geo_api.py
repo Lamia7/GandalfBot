@@ -22,13 +22,9 @@ class GeoWrapper:
 
         # convert to Json
         json_result = result.json()
-        # choose latitude & longitude from result
-        lat_lng = json_result['features'][0]['geometry']['coordinates']
+        print(json_result)
 
-        #print(json_result)
-        print(lat_lng)
-
-        # store result into variables
+        # choose latitude & longitude from result and store them into variables
         self.longitude = json_result['features'][0]['geometry']['coordinates'][1]
         self.latitude = json_result['features'][0]['geometry']['coordinates'][0]
         print(f"Pour {query} la longitude est {self.longitude} et la latitude est {self.latitude}")
@@ -37,4 +33,4 @@ class GeoWrapper:
 
 # testing with paris as query
 #geo = GeoWrapper()
-#print(geo.get_coordinates("tour eiffel"))
+#print(geo.get_coordinates("reims"))
