@@ -7,83 +7,60 @@
 - éliminer accents
 - isoler lieu
 - éliminer stop words
+
+A FAIRE:
+- ajouter docstrings
+-
 """
 from unidecode import unidecode
 
 from config import PUNCTUATION, STOP_WORDS
-from app.geo_api import GeoWrapper
-from app.wiki_api import Wikiwrapper
 
 
 class Parser:
 
-    def __init__(self):
-        self.parsed_input = None
+    def __init__(self, user_input):
+        """Cleans and parses user_input"""
+        self.user_input = user_input
+        self.delete_accents()
+        self.make_lower_case()
+        self.delete_punctuation()
+        self.cut_question()
+        self.get_key_words()
+        self.parsed_input = self.user_input
 
-    def launch_parse_process(self, user_input):
-        self.delete_accents(user_input)
+    def delete_accents(self):
+        self.user_input = unidecode(self.user_input)
 
-    def delete_accents(self, user_input):
-        message_no_acc = unidecode(user_input)
-        self.make_lower_case(message_no_acc)
+    def make_lower_case(self):
+        self.user_input = self.user_input.lower()
 
-    def make_lower_case(self, message_no_acc):
-        message_lower = message_no_acc.lower()
-        self.delete_punctuation(message_lower)
-
-    def delete_punctuation(self, message_lower):
+    def delete_punctuation(self):
         """Removes punctuation from user input"""
-
-        for char in message_lower:
+        for char in self.user_input:
             if char in PUNCTUATION:
-                message_lower = message_lower.replace(char, " ")
-                #message_no_punc = message_lower.replace(char, " ")
-        message_no_punc = message_lower
-        self.cut_question(message_no_punc)
+                self.user_input = self.user_input.replace(char, " ")
 
-    def cut_question(self, message_no_punc):
-        """Cutdown user_input into words"""
-        words_list = message_no_punc.split()
-        self.delete_stop_words(words_list)
+    def cut_question(self):
+        """Separate user_input string into a list of words"""
+        self.user_input = self.user_input.split()
 
-    def delete_stop_words(self, words_list):
-        """
-        PROBLEME : ne supprime pas certains STOP words (voir exemple de test)
-        :param user_input:
-        :return: sentence with key words & without stop words
-        """
-
-        for word in words_list:
-            if word in STOP_WORDS:
-                words_list.remove(word)
-        self.parsed_input = ' '.join(words_list)
-        return self.parsed_input
-
-    def get_place(self, parsed_input):
-        """Find place with parsed message"""
-
-        # Get coordinates from mapbox api
-        geowrapper = GeoWrapper()
-        coordinates = geowrapper.get_coordinates(parsed_input)
-        print(f"COORDINATES: {coordinates}")
-        longitude = coordinates[0]
-        latitude = coordinates[1]
-
-        # Get info from wiki api
-        wikiwrapper = Wikiwrapper(longitude, latitude)
-        wiki_details = wikiwrapper.get_wiki_info()
-        return wiki_details
-
+    def get_key_words(self):
+        """ """
+        key_words = []
+        for word in self.user_input:
+            if word not in STOP_WORDS:
+                key_words.append(word)
+        self.user_input = ' '.join(key_words)
 
 
 """ 
 TEST
 parser = Parser()
 print(parser)
-parser.launch_parse_process("reims")
+parser.launch_parse_process("Salut grandpy! Comment s'est passé ta soirée avec Grandma hier soir? Au fait, pendant que j'y pense, pourrais-tu m'indiquer où se trouve le musée d'art et d'histoire de Fribourg, s'il te plaît?")
 print(f"PARSED_MSG: {parser.parsed_input}")
 print(f"GET PLACE: {parser.get_place(parser.parsed_input)}")
-
 
 
 question = "Sais tu où se trouve Paris ?"

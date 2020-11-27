@@ -7,10 +7,10 @@ Module that contains routes
 from flask import render_template, request
 
 from app import app
+from app.geo_api import GeoWrapper
 from app.parser import Parser
 
-
-#parser = Parser()
+from app.wiki_api import Wikiwrapper
 
 
 @app.route('/')  # view function with route URL
@@ -30,10 +30,13 @@ def result():
     print(user_input)
 
     # Get wiki description
-    parser = Parser()
-    parser.launch_parse_process(user_input)
-    response = parser.get_place(parser.parsed_input)  # description de wiki pr le moment
-    return response
+    parser = Parser(user_input)
+    #parsed_input = parser.user_input
+    #geowrapper = GeoWrapper(parser.parsed_input)  # contains coordinates according to the given parsed_input
+    wikiwrapper = Wikiwrapper(parser)
+    wiki_details = wikiwrapper.get_wiki_info_by_long_lat()
+
+    return wiki_details
 
 
 

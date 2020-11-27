@@ -1,25 +1,28 @@
 """
 Module test pour la récupération des données de l'API wikimedia
 - créer une classe wiki_wrapper
-- mettre les variables globales dans fichier de config
+- à l'instanciation on lui donne en param l'instance de parser
+- à l'instanciation, wikiwrapper va instancier un objet geowrapper car il a besoin des coordonnées générées par ce dernier
+- wikiwrapper récupère donc des infos à partir des coordonnées de geowrapper qui lui mm récupère coordonnées à partir du parser qui renvoie un input parsé
 """
 
 import requests
 
+from app.geo_api import GeoWrapper
 from config import WIKI_API_URL
 
 
 class Wikiwrapper:
 
-    def __init__(self, longitude, latitude):
-        self.longitude = longitude
-        self.latitude = latitude
+    def __init__(self, parser):
+        self.geowrapper = GeoWrapper(parser.parsed_input)  # cré geowrapper dont il a besoin
+        # si il a besoin d'un geowrapper c lui qui l'instancie et il recup les coord pr l'input parsé
 
-    def get_wiki_info(self):
+    def get_wiki_info_by_long_lat(self):
 
         payload = {"action": "query",
                    "format": "json",
-                   "ggscoord": f"{self.longitude}|{self.latitude}",
+                   "ggscoord": f"{self.geowrapper.longitude}|{self.geowrapper.latitude}",
                    "generator": "geosearch",
                    "prop": "extracts|info",
                    "explaintext": True,  # convert HTML to plain text
