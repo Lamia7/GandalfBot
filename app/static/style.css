@@ -45,7 +45,7 @@ h2 {
 
 #user_question, #user_question2 {
     background-color: white;
-    margin: 10px 0px 10px 0px;
+    margin: 10px 0px 10px 0px; /*tester de remplacer par class="mt-10 mb-10" direct sur fichier*/
     border-radius: 10px;
     /*flex-direction: row-reverse;  on the right */
 }
@@ -66,6 +66,11 @@ h2 {
     height: 150px;
     border: 2px #77655b solid;
     border-radius: 10px;
+}
+
+#map {
+height: 200px;
+width: 500px;
 }
 
 #user_input {
