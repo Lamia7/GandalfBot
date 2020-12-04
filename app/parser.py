@@ -4,7 +4,7 @@ making it in lower case, removing accents, punctuation and stop words from user_
 """
 from unidecode import unidecode
 
-from config import PUNCTUATION, STOP_WORDS
+from configuration.config import PUNCTUATION, STOP_WORDS
 
 
 class Parser:
