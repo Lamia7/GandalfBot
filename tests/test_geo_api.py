@@ -15,8 +15,8 @@ def test_get_location_coordinates_success(monkeypatch):  #monkeypatch fixture to
     THEN check the HTTP response
     """
 
-    #class MockResponse(object): #object ?
     class MockResponse:
+
         def __init__(self):
             self.status_code = 200
 
@@ -114,7 +114,7 @@ def test_get_location_coordinates_failure(monkeypatch):
     WHEN the HTTP response has failed
     THEN check the HTTP response"""
 
-    class MockResponse():  # object in param?
+    class MockResponse:  # object in param?
         def __init__(self):
             self.status_code = 404
 

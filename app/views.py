@@ -33,8 +33,13 @@ def result():
     parser = Parser(user_input)
     #parsed_input = parser.user_input
     #geowrapper = GeoWrapper(parser.parsed_input)  # contains coordinates according to the given parsed_input
-    wikiwrapper = Wikiwrapper(parser)
-    wiki_details = wikiwrapper.get_wiki_info_by_long_lat()
+
+    geowrapper = GeoWrapper(parser.parsed_input)
+    wikiwrapper = Wikiwrapper()
+    wiki_details = wikiwrapper.get_wiki_info_by_long_lat(geowrapper.longitude, geowrapper.latitude)
+
+    # Get map
+
 
     return wiki_details
 

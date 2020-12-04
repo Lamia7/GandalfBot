@@ -1,28 +1,21 @@
 """
-Module test pour la récupération des données de l'API wikimedia
-- créer une classe wiki_wrapper
-- à l'instanciation on lui donne en param l'instance de parser
-- à l'instanciation, wikiwrapper va instancier un objet geowrapper car il a besoin des coordonnées générées par ce dernier
-- wikiwrapper récupère donc des infos à partir des coordonnées de geowrapper qui lui mm récupère coordonnées à partir du parser qui renvoie un input parsé
+Module pour la récupération des données de l'API wikimedia
+
 """
 
 import requests
 
-from app.geo_api import GeoWrapper
-from config import WIKI_API_URL
+from configuration.config import WIKI_API_URL
 
 
 class Wikiwrapper:
 
-    def __init__(self, parser):
-        self.geowrapper = GeoWrapper(parser.parsed_input)  # cré geowrapper dont il a besoin
-        # si il a besoin d'un geowrapper c lui qui l'instancie et il recup les coord pr l'input parsé
-
-    def get_wiki_info_by_long_lat(self):
+    def get_wiki_info_by_long_lat(self, longitude, latitude):
+        """Gets the title, description and url info from Wiki API according to the given coordinates"""
 
         payload = {"action": "query",
                    "format": "json",
-                   "ggscoord": f"{self.geowrapper.longitude}|{self.geowrapper.latitude}",
+                   "ggscoord": f"{longitude}|{latitude}",
                    "generator": "geosearch",
                    "prop": "extracts|info",
                    "explaintext": True,  # convert HTML to plain text
@@ -57,48 +50,4 @@ class Wikiwrapper:
             return wiki_details
 
         else:
-
-            # Return a json
-            return {
-                "ERREUR :": result.status_code
-            }
-
-
-#test
-#wikiwrapper = Wikiwrapper(48.85658, 2.35183)
-#print(wikiwrapper.get_wiki_info())
-
-
-"""
-            # Return a json
-            wiki_details = {
-                "title": title,
-                "description": description,
-                "url": url
-            }
-            print(wiki_details)
-
-            return wiki_details
-
-
-print(f"TITRE: {wikiwrapper.get_wiki_info()[0]}\n"
-      f"DESCRIPTION: {wikiwrapper.get_wiki_info()[1]}\n"
-      f"URL: {wikiwrapper.get_wiki_info()[2]}")"""
-
-"""
-API_URL = "https://fr.wikipedia.org/w/api.php?"
-PAYLOAD = {"action": "query",
-           "format": "json",
-           "ggscoord": "48.85658|2.35183",
-           "generator": "geosearch",
-           "prop": "extracts|info",
-           "explaintext": True,  # convert HTML to plain text
-           "exsentences": 3,  # how sentences to return
-           "inprop": "url",  # get url (added info to prop for this)
-           "titles": "barcelone"}
-           
-           
-"ggscoord" = longitude|latitude
-
-#result = requests.get("https://fr.wikipedia.org/w/api.php?action=query&format=json&ggscoord=48.85658|2.35183&generator=geosearch&prop=extracts|info&explaintext&exsentences=3&inprop=url&titles=paris")
-"""
+            print(f"Wiki API error occured: {result.status_code}")
