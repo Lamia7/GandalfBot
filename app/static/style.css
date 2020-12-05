@@ -31,7 +31,7 @@ h2 {
 */
 
 /* a corriger */
-.chatbox {
+#chatbox {
     margin: auto;
     padding: 20px;
     margin-bottom: 20px;
@@ -43,14 +43,14 @@ h2 {
     /*align-content: space-around;*/
 }
 
-#user_question, #user_question2 {
+#user_question {
     background-color: white;
     margin: 10px 0px 10px 0px; /*tester de remplacer par class="mt-10 mb-10" direct sur fichier*/
     border-radius: 10px;
     /*flex-direction: row-reverse;  on the right */
 }
 
-#bot_reply, #bot_reply2 {
+#bot_reply, #description {
     background-color: #c6c5b6;
     margin: 10px 0px 10px 0px;
     border-radius: 10px;

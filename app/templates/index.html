@@ -10,13 +10,10 @@
     </header>
 
     <div class="container-fluid"> <!--full container, doesnt cut on smaller device-->
-        <div class="row chatbox">
+        <div id="chatbox" class="row">
 
-            <!---->
-            <div class="col-lg-4 col-12 align-self-end align-items-end" id="user_question">Aperçu de ta question</div>
-            <div class="col-lg-4 col-12 align-self-start align-items-start" id="bot_reply">Gandalf répond ici</div>
-            <div class="col-lg-4 col-12 align-self-end align-items-end" id="user_question2">Aperçu de ta question 2</div>
-            <div class="col-lg-4 col-12 align-self-start align-items-start" id="bot_reply2">Gandalf réponse 2</div>
+            <!-- Conversation will appear here -->
+
             <div id="map"></div>
 
         </div>
@@ -26,7 +23,8 @@
             <legend>De quel endroit souhaites-tu que je te parle ?</legend>
             <div class="row">
                 <div class="col-lg-10 col-12">
-                    <input id="user_input" type="text" maxlength="160" placeholder="Où est Manhattan ?" autofocus required> <br>
+                    <!--<input id="user_input" type="text" maxlength="300" placeholder="Où est Manhattan ?" autofocus required> <br> -->
+                    <textarea id="user_input" type="text" maxlength="300" placeholder="Où est Manhattan ?" autofocus required></textarea>
                 </div>
                     <!--<img src="static/assets/door.png" alt="button_send" id="door_button" />-->
                 <div class="col-lg-2 col-12">
