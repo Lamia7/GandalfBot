@@ -18,11 +18,23 @@ function addChatElement(text) {
 
     chatboxElement.appendChild(newChatElement) // adds div child to chatbox parent
     newChatElement.textContent = text
-    newChatElement.setAttribute('id', 'description') // to get description css
+    newChatElement.setAttribute('id', 'bot_reply') // to get description css
     newChatElement.className = 'col-lg-4 col-12 align-self-start align-items-start' // to get bootstrap
 }
 
 // CREATES DIV CHILD BOT URL
+function addChatElementUrl(text) {
+  const chatboxElement = document.getElementById('chatbox')
+  const newChatElementUrl = document.createElement('a')
+
+    chatboxElement.appendChild(newChatElementUrl) // adds div child to chatbox parent
+    newChatElementUrl.textContent = text
+    newChatElementUrl.setAttribute('href', text)
+    newChatElementUrl.textContent = '[En savoir plus sur Wikipedia]'
+    newChatElementUrl.setAttribute('id', 'bot_reply') // to get description css
+    newChatElementUrl.setAttribute('target', '_blank')
+    newChatElementUrl.className = 'col-lg-4 col-12 align-self-start align-items-start' // to get bootstrap
+}
 // CREATES DIV CHILD BOT MAP
 
 // AJAX sends input to back
@@ -44,6 +56,9 @@ function sendInput(message) {
 
             // Displays bot_reply with description to chatbox
             addChatElement(bot_reply_description) // calls
+
+            // Displays bot_reply with url to chatbox
+            addChatElementUrl(bot_reply_url)
 
         } else {
         console.log('Il y a eu un problème.')
