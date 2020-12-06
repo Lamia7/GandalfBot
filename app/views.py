@@ -31,17 +31,17 @@ def result():
 
     # Get wiki description
     parser = Parser(user_input)
-    #parsed_input = parser.user_input
-    #geowrapper = GeoWrapper(parser.parsed_input)  # contains coordinates according to the given parsed_input
-
     geowrapper = GeoWrapper(parser.parsed_input)
     wikiwrapper = Wikiwrapper()
     wiki_details = wikiwrapper.get_wiki_info_by_long_lat(geowrapper.longitude, geowrapper.latitude)
 
-    # Get map
+    return {
+        "description": wiki_details['description'],
+        "url": wiki_details['url'],
+        "longitude": geowrapper.longitude,
+        "latitude": geowrapper.latitude,
+    }
 
-
-    return wiki_details
 
 
 

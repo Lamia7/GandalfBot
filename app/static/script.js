@@ -1,9 +1,9 @@
-// JavaScript file
+import { initMap } from './map.js'
 
-// CREATES DIV CHILD USER
+// CREATES DIV CHILD USER INPUT
 function addUserChatElement(text) {
-  const chatboxElement = document.getElementById('chatbox')
-  const newUserChatElement = document.createElement('div')
+    const chatboxElement = document.getElementById('chatbox')
+    const newUserChatElement = document.createElement('div')
 
     chatboxElement.appendChild(newUserChatElement) // adds div child to chatbox parent
     newUserChatElement.textContent = text
@@ -13,8 +13,8 @@ function addUserChatElement(text) {
 
 // CREATES DIV CHILD BOT DESCRIPTION
 function addChatElement(text) {
-  const chatboxElement = document.getElementById('chatbox')
-  const newChatElement = document.createElement('div')
+    const chatboxElement = document.getElementById('chatbox')
+    const newChatElement = document.createElement('div')
 
     chatboxElement.appendChild(newChatElement) // adds div child to chatbox parent
     newChatElement.textContent = text
@@ -24,8 +24,8 @@ function addChatElement(text) {
 
 // CREATES DIV CHILD BOT URL
 function addChatElementUrl(text) {
-  const chatboxElement = document.getElementById('chatbox')
-  const newChatElementUrl = document.createElement('a')
+    const chatboxElement = document.getElementById('chatbox')
+    const newChatElementUrl = document.createElement('a')
 
     chatboxElement.appendChild(newChatElementUrl) // adds div child to chatbox parent
     newChatElementUrl.textContent = text
@@ -35,9 +35,18 @@ function addChatElementUrl(text) {
     newChatElementUrl.setAttribute('target', '_blank')
     newChatElementUrl.className = 'col-lg-4 col-12 align-self-start align-items-start' // to get bootstrap
 }
-// CREATES DIV CHILD BOT MAP
 
-// AJAX sends input to back
+// CREATES DIV CHILD BOT MAP
+function addChatElementMap(latitude, longitude) {
+    const chatboxElement = document.getElementById('chatbox')
+    const newChatElementMap = document.createElement('div')
+    initMap(longitude, latitude)
+
+    chatboxElement.appendChild(newChatElementMap) // ajouter div à chatbox en tant qu'enfant
+    newChatElementMap.setAttribute('id', 'map') // lui attribuer un id map
+}
+
+// --- AJAX sends input to back --- //
 // Creates function that will post data, takes into params route URL and data to send it to back
 function sendInput(message) {
     let xhr = new XMLHttpRequest();
@@ -48,27 +57,29 @@ function sendInput(message) {
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) { // or 'this.' to represent 'xhr'
             let response = JSON.parse(xhr.responseText) // parsing text response from back into JSON
-            bot_reply_description = response['description']
-            bot_reply_url = response['url']
+            const bot_reply_description = response['description']
+            const bot_reply_url = response['url']
+            const longitude = response['longitude']
+            const latitude = response['latitude']
 
-            // Displays user_input to chatbox
-            addUserChatElement(message)
+            addUserChatElement(message) // Displays user_input to chatbox
+            addChatElement(bot_reply_description) // Displays bot_reply with description to chatbox
+            addChatElementUrl(bot_reply_url) // Displays bot_reply with url to chatbox
 
-            // Displays bot_reply with description to chatbox
-            addChatElement(bot_reply_description) // calls
-
-            // Displays bot_reply with url to chatbox
-            addChatElementUrl(bot_reply_url)
+            // Get coordinates
+            addChatElementMap(longitude, latitude)
+            console.log(`longitude: ${longitude}, latitude: ${latitude}`)
 
         } else {
         console.log('Il y a eu un problème.')
         }
     }
-};
+}
+
+// --- Listen to submit event with user_input --- //
 
 // Create variables with data get from HTML
 let form = document.querySelector('.questions');
-
 // Sends the user_input value to the server and chatbox when capture a submit event on form
 form.addEventListener('submit', function(event) {
     event.preventDefault();  // avoid default behavior that sends all the form once we click on button
@@ -76,5 +87,3 @@ form.addEventListener('submit', function(event) {
     sendInput(input); // calls sendInput function and send data to server
     form.reset(); // clears form after sumbitting
 })
-
-

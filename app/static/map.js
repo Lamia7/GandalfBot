@@ -1,15 +1,13 @@
-function init() {
-    console.log('Started map');
 
+export function initMap (longitude, latitude) {
     const place = {
-        lat: 48.114384,
-        long: -1.669494,
+        lat: latitude,
+        long: longitude,
     }
     const zoom = 7;
 
     // Get a map
     const map = L.map('map').setView([place.lat, place.long], zoom);
-    // (objet L mis à dispo grâce au scripte leaflet), le tout ns retourne un objet map
 
     // Get a tile (images)
     const mainLayer = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -18,7 +16,7 @@ function init() {
         id: 'mapbox/streets-v11',
         tileSize: 512,
         zoomOffset: -1,
-        accessToken: 'pk.eyJ1IjoibGFtaWE3IiwiYSI6ImNraHA3YjR0MjB1MGwydms2Mm55bWxlbW0ifQ.zMlnj664_c4_ZNFCCoaBXA'
+        accessToken: "pk.eyJ1IjoibGFtaWE3IiwiYSI6ImNraWFvYmp5dzA0dHIyeWswa3lxbXQyODYifQ.a7-70MrQHZZOU2lKseHL4g"
     });
 
     // Add tile to map
@@ -27,5 +25,3 @@ function init() {
     // Add marker
     const marker = L.marker([place.lat, place.long]).addTo(map)
 }
-
-//init()
