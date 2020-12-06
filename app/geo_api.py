@@ -1,7 +1,5 @@
 """
-Module pour la récupération des données de l'API mapbox
-- créer une classe geo_wrapper
-- mettre les variables globales dans fichier de config
+Module to get data from the Mapbox API
 """
 import requests
 
@@ -9,9 +7,7 @@ from configuration.config import GEO_API_URL, TOKEN
 
 
 class GeoWrapper:
-    """ajouter user input dans l'init
-    et ds ma méth jv setter lat et long sans return
-    dès que j'init GeoWrapper, il va me renvoyer directement long et lat"""
+    """Represents the Mapbox API"""
 
     def __init__(self, input):
         self.latitude = None
@@ -19,14 +15,11 @@ class GeoWrapper:
         self.get_coordinates(input)
 
     def get_coordinates(self, input):
-
-        # get result from request to mapbox api
-
+        """Gets the coordinates from Mapbox API and sets latitude & longitude according to input"""
         result = requests.get(f"{GEO_API_URL}{input}.json?access_token={TOKEN}&language=fr")
 
         if result.status_code == 200:
-            # convert to Json
-            json_result = result.json()
+            json_result = result.json()  # convert to Json
 
             # choose latitude & longitude from result and store them into variables
             self.longitude = json_result['features'][0]['geometry']['coordinates'][1]

@@ -1,6 +1,5 @@
 """
-Module pour la récupération des données de l'API wikimedia
-
+Module to get data from the Wikimedia API
 """
 
 import requests
@@ -9,10 +8,10 @@ from configuration.config import WIKI_API_URL
 
 
 class Wikiwrapper:
+    """Represents the Wikimedia API"""
 
     def get_wiki_info_by_long_lat(self, longitude, latitude):
         """Gets the title, description and url info from Wiki API according to the given coordinates"""
-
         payload = {"action": "query",
                    "format": "json",
                    "ggscoord": f"{longitude}|{latitude}",
@@ -28,13 +27,12 @@ class Wikiwrapper:
 
         # if request works
         if result.status_code == 200:
-            # mettre en json
-            json_result = result.json()
 
-            # ds dico query, le dico pages
+            json_result = result.json()  # jsonify the results
             pages = json_result['query']['pages']  # access to pages from result json
             pages = (list(pages.values()))  # convert values of pages into list of dict
 
+            # Get the infos needed
             title = pages[0]['title']  # get title's value from first dict
             description = pages[0]['extract']  # get extract's value
             url = pages[0]['fullurl']  # get wikipedia link

@@ -8,6 +8,7 @@ from configuration.config import PUNCTUATION, STOP_WORDS
 
 
 class Parser:
+    """Represents the parser"""
 
     def __init__(self, user_input):
         self.user_input = user_input
