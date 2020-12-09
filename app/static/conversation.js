@@ -47,10 +47,10 @@ export function addChatElementUrl (text) {
 export function addChatElementMap (latitude, longitude) {
     const chatboxElement = document.getElementById('chatbox')
     const newChatElementMap = document.createElement('div')
-    initMap(longitude, latitude)
 
     chatboxElement.appendChild(newChatElementMap) // ajouter div à chatbox en tant qu'enfant
     newChatElementMap.setAttribute('id', 'map') // lui attribuer un id map
+    initMap(longitude, latitude)
 
     newChatElementMap.scrollIntoView(true)
 }
