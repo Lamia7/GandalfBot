@@ -49,11 +49,15 @@ __(HTML)__ : shows reply
 - [x] Add style link to base.html
 - [x] Add route to access with POST method (when question is submitted)
 - [x] Get question asked (from front to back-end) 
-- [x] Add parser to analyze question 
-- [x] Make request to wikimedia API
-- [ ] Use parser on user_input
+- [x] Add parser to analyze question + tests
+- [x] Make request to wikimedia API + tests
+- [x] Use parser on user_input
 - [x] Retrieve wikimedia API response and send it to front
-- [ ] Retrieve map with coordinates according to user's question
+- [x] Retrieve map with coordinates according to user's question + tests
+- [x] Display bot replies to chatbox
+
+- [ ] Hide previous response but with scrolling option
+
 - [ ] Create partials folder for forms
 - [ ] Add _form.html to partials folder
 - [ ] Improve style (input, responsive, font, sizes...)

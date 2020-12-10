@@ -1,5 +1,6 @@
 
-export function initMap (longitude, latitude) {
+export function initMap (longitude, latitude, mapId) {
+    console.log('started map')
     const place = {
         lat: latitude,
         long: longitude,
@@ -7,7 +8,7 @@ export function initMap (longitude, latitude) {
     const zoom = 7;
 
     // Get a map
-    const map = L.map('map').setView([place.lat, place.long], zoom);
+    const map = L.map(mapId).setView([place.lat, place.long], zoom);
 
     // Get a tile (images)
     const mainLayer = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {

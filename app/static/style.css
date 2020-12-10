@@ -50,7 +50,8 @@ h2 {
     /*flex-direction: row-reverse;  on the right */
 }
 
-#bot_reply, #description {
+/* #bot_reply, #description { */
+#bot_reply {
     background-color: #c6c5b6;
     margin: 10px 0px 10px 0px;
     border-radius: 10px;
@@ -68,9 +69,9 @@ h2 {
     border-radius: 10px;
 }
 
-#map {
-height: 200px;
-width: 500px;
+div[id^="map"] {
+    height: 200px;
+    width: 500px;
 }
 
 #user_input {
