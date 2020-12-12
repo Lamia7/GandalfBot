@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8" />
         <link rel="shortcut icon" type="image/png" href="static/assets/favicon.png"/>
-        <!-- Ajout condition sur titre -->
         {% if title %}
         <title>{{ title }} - GandalfBot</title>
         {% else %}
@@ -25,20 +24,22 @@
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
    crossorigin=""></script>
-        <!--<script type="module" src="./static/map.js"></script>-->
 
     </head>
 
     <body>
+        <header>
+            <div class="container-fluid d-flex justify-content-center align-items-center align-center" id="header_container">
+                <div class="row d-flex justify-content-center align-items-center align-center">
+                    <img class="d-inline-block align-top" src="static/assets/gandalf.png" alt="logo_gandalf" id="logo_gandalf" width="100" height="100" />
+                    <h1>GandalfBot</h1>
+                </div>
+            </div>
+        </header>
 
-    <!--
-    <nav>
-        <ul>
-            <li><a href="">Accueil</a></li>
-            <li><a href="">Présentation</a></li>
-        </ul>
-    </nav>
-    -->
+        <div class="row mt-3 d-flex justify-content-center align-center">
+            <p>Quels lieux t'intriguent ? Dis-le moi et je t'en parlerai ...</p>
+        </div>
     {% block content %}
     {% endblock %}
 
@@ -59,19 +60,17 @@
     </body>
 
     <footer>
-        <hr>
-        Réalisé par : Lamia EL RALIMI <br>
+        <div class="footer">
+                <div class="text-center"> Réalisé par : Lamia EL RALIMI  </div>
 
-
-        <div id="github_footer">
-            <a href="https://github.com/Lamia7">
-                <img src="static/assets/github_icon.svg" alt="github" id="github_icon" />
-            </a>
-
-            <a href="https://www.linkedin.com/in/lamia-elralimi/" >
-                <img src="static/assets/linkedin_icon.svg" alt="linkedin" id="linkedin_icon"/>
-            </a>
-
+                <div class="d-flex justify-content-center">
+                    <a href="https://github.com/Lamia7">
+                        <img src="static/assets/github_icon.svg" alt="github" class="d-block align-center" width="30" height="30"/>
+                    </a>
+                    <a href="https://www.linkedin.com/in/lamia-elralimi/" >
+                        <img src="static/assets/linkedin_icon.svg" alt="linkedin" class="d-block align-center" width="30" height="30"/>
+                    </a>
+                </div>
         </div>
     </footer>
 </html>

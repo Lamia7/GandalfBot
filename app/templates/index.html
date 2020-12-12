@@ -1,35 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-    <header>
-        <div id="header_container">
-            <img class="col-lg-2 col-12" src="static/assets/gandalf.png" alt="logo_gandalf" id="logo_gandalf" />
-            <h1 class="col-lg-10 col-12">GandalfBot</h1>
-            <!--<h2>Quels lieux t'intriguent ? Dis-le moi et je t'en parlerai ...</h2>-->
-        </div>
-
-    </header>
 
     <div class="container-fluid"> <!--full container, doesnt cut on smaller device-->
-        <div id="chatbox" class="row">
+        <div class="row justify-content-center main_row">
+            <div class="col thread">
+                <div class="card">
+                        <div class="card-body" id="chatbox" >
 
-            <!-- Conversation will appear here -->
+                            <!-- Conversation will appear here -->
 
-        </div>
+                        </div>
 
-        <!-- <form class="row questions" method="post"> -->
-        <form class="row questions">
-            <legend>De quel endroit souhaites-tu que je te parle ?</legend>
-            <div class="row">
-                <div class="col-lg-10 col-12">
-                    <!--<input id="user_input" type="text" maxlength="300" placeholder="Où est Manhattan ?" autofocus required> <br> -->
-                    <textarea id="user_input" type="text" maxlength="300" placeholder="Où est Manhattan ?" autofocus required></textarea>
-                </div>
-                    <!--<img src="static/assets/door.png" alt="button_send" id="door_button" />-->
-                <div class="col-lg-2 col-12">
-                    <button class="send_btn" type="submit">Envoyer</button>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Où est Manhattan ?" id="user_input">
+                            <div class="input-group-append mr-2"> <!-- adding button -->
+                              <button id="button" type="submit" class="btn btn-outline-secondary">Envoyer</button>
+                            </div>
+                        </div>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 
 {% endblock %}

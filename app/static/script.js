@@ -1,6 +1,13 @@
 // Module that contains function that listens to submit event and ajax function
 import { addUserChatElement, addChatElement, addChatElementUrl, addChatElementMap } from './conversation.js'
 
+/*function refreshScreen () {
+  const chatbox = document.getElementById('chatbox')
+  chatbox.scrollIntoView()
+
+}
+*/
+
 // --- AJAX sends input to back --- //
 // Creates function that will post data, takes into params route URL and data to send it to back
 function sendInput(message) {
@@ -24,7 +31,7 @@ function sendInput(message) {
             // Get coordinates
             addChatElementMap(longitude, latitude)
             console.log(`longitude: ${longitude}, latitude: ${latitude}`)
-
+            // refreshScreen()
         } else {
         console.log('Il y a eu un problème.')
         }
@@ -33,12 +40,23 @@ function sendInput(message) {
 
 // --- Listen to submit event with user_input --- //
 
-// Create variables with data get from HTML
-let form = document.querySelector('.questions');
-// Sends the user_input value to the server and chatbox when capture a submit event on form
-form.addEventListener('submit', function(event) {
-    event.preventDefault();  // avoid default behavior that sends all the form once we click on button
-    let input = document.querySelector('#user_input').value; // gets the value of the input that user enters
-    sendInput(input); // calls sendInput function and send data to server
-    form.reset(); // clears form after sumbitting
+// Sends the user_input value to the server and chatbox click ENTER on keyboard
+let input = document.querySelector('#user_input')
+input.addEventListener('keyup', function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault() // avoid default behavior that sends all the form once we click on button
+        let input_value = input.value // gets the value of the input that user enters
+        sendInput(input_value) // calls sendInput function and send data to server
+        input.value = '' // clears form after sumbitting
+    }
 })
+
+// Sends the user_input value to the server and chatbox click on button
+const button = document.querySelector('#button')
+button.addEventListener('click', function(event) {
+        event.preventDefault()
+        let input_value = input.value
+        sendInput(input_value)
+        input.value = ''
+})
+
