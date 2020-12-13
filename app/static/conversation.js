@@ -1,5 +1,5 @@
 // Module that contains functions to create conversation elements (user's questions and bot replies)
-import { initMap } from './map.js'
+import { Map } from './map.js'
 
 const chatboxElement = document.getElementById('chatbox')
 let divclassUser = "d-flex justify-content-end mb-4 "
@@ -59,7 +59,8 @@ export function addChatElementMap (latitude, longitude) {
 
     chatboxElement.appendChild(newChatElementMap) // adds div child to chatbox parent
     newChatElementMap.className = divclassBot
-    initMap(longitude, latitude, mapId)
+    const map = new Map()
+    map.initMap(longitude, latitude, mapId)
 }
 
 // CREATES DIV CHILD BOT NO ANSWER
