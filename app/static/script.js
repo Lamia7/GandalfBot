@@ -1,13 +1,6 @@
 // Module that contains function that listens to submit event and ajax function
 import { addUserChatElement, addChatElement, addChatElementUrl, addChatElementMap, addBotNoAnswerElement } from './conversation.js'
 
-/*function refreshScreen () {
-  const chatbox = document.getElementById('chatbox')
-  chatbox.scrollIntoView()
-
-}
-*/
-
 // --- AJAX sends input to back --- //
 // Creates function that will post data, takes into params route URL and data to send it to back
 function sendInput(message) {
@@ -32,10 +25,7 @@ function sendInput(message) {
                 addChatElement(bot_reply_description) // Displays bot_reply with description to chatbox
                 addChatElementUrl(bot_reply_url) // Displays bot_reply with url to chatbox
                 addChatElementMap(longitude, latitude) // Displays bot_reply with map
-                console.log(`longitude: ${longitude}, latitude: ${latitude}`)
-                // refreshScreen()
             } else {
-                console.log('Il y a eu un problème.')
                 addBotNoAnswerElement()
             }
         }

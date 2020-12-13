@@ -27,25 +27,24 @@ class Wikiwrapper:
 
         # if request works
         if result.status_code == 200:
-
             json_result = result.json()  # jsonify the results
-            pages = json_result['query']['pages']  # access to pages from result json
-            pages = (list(pages.values()))  # convert values of pages into list of dict
+            if 'query' in json_result:
+                pages = json_result['query']['pages']  # access to pages from result json
+                pages = (list(pages.values()))  # convert values of pages into list of dict
 
-            # Get the infos needed
-            title = pages[0]['title']  # get title's value from first dict
-            description = pages[0]['extract']  # get extract's value
-            url = pages[0]['fullurl']  # get wikipedia link
+                # Get the infos needed
+                title = pages[0]['title']  # get title's value from first dict
+                description = pages[0]['extract']  # get extract's value
+                url = pages[0]['fullurl']  # get wikipedia link
 
-            # Return a json
-            wiki_details = {
-                "title": title,
-                "description": description,
-                "url": url
-            }
-            print(wiki_details)
+                # Return a json
+                wiki_details = {
+                    "title": title,
+                    "description": description,
+                    "url": url
+                }
+                # print(wiki_details)
 
-            return wiki_details
-
+                return wiki_details
         else:
             print(f"Wiki API error occured: {result.status_code}")

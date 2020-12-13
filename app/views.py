@@ -38,15 +38,18 @@ def result():
         wikiwrapper = Wikiwrapper()
         wiki_details = wikiwrapper.get_wiki_info_by_long_lat(geowrapper.longitude, geowrapper.latitude)
 
-        print(f"WIKI RESULTAT: {wiki_details}")
-        return {
-            "description": wiki_details['description'],
-            "url": wiki_details['url'],
-            "longitude": geowrapper.longitude,
-            "latitude": geowrapper.latitude,
-        }
+        if wiki_details is not None:
+            return {
+                "description": wiki_details['description'],
+                "url": wiki_details['url'],
+                "longitude": geowrapper.longitude,
+                "latitude": geowrapper.latitude,
+            }
+        else:
+            print("No wiki details found.")
+            return {"content": "error"}
     else:
-        print("erroorrrrr")
+        print("Wiki API needs coordinates.")
         return {"content": "error"}
 
 
