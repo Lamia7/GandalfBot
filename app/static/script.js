@@ -1,5 +1,5 @@
 // Module that contains function that listens to submit event and ajax function
-import { addUserChatElement, addChatElement, addChatElementUrl, addChatElementMap } from './conversation.js'
+import { addUserChatElement, addChatElement, addChatElementUrl, addChatElementMap, addBotNoAnswerElement } from './conversation.js'
 
 /*function refreshScreen () {
   const chatbox = document.getElementById('chatbox')
@@ -18,22 +18,26 @@ function sendInput(message) {
     xhr.send(JSON.stringify(message));
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) { // or 'this.' to represent 'xhr'
-            let response = JSON.parse(xhr.responseText) // parsing text response from back into JSON
-            const bot_reply_description = response['description']
-            const bot_reply_url = response['url']
-            const longitude = response['longitude']
-            const latitude = response['latitude']
-
             addUserChatElement(message) // Displays user_input to chatbox
-            addChatElement(bot_reply_description) // Displays bot_reply with description to chatbox
-            addChatElementUrl(bot_reply_url) // Displays bot_reply with url to chatbox
+            // Get infos from response
+            let response = JSON.parse(xhr.responseText) // parsing text response from back into JSON
 
-            // Get coordinates
-            addChatElementMap(longitude, latitude)
-            console.log(`longitude: ${longitude}, latitude: ${latitude}`)
-            // refreshScreen()
-        } else {
-        console.log('Il y a eu un problème.')
+            if ('description' in response) {
+                const bot_reply_description = response['description']
+                const bot_reply_url = response['url']
+                const longitude = response['longitude']
+                const latitude = response['latitude']
+
+                // Bot
+                addChatElement(bot_reply_description) // Displays bot_reply with description to chatbox
+                addChatElementUrl(bot_reply_url) // Displays bot_reply with url to chatbox
+                addChatElementMap(longitude, latitude) // Displays bot_reply with map
+                console.log(`longitude: ${longitude}, latitude: ${latitude}`)
+                // refreshScreen()
+            } else {
+                console.log('Il y a eu un problème.')
+                addBotNoAnswerElement()
+            }
         }
     }
 }
@@ -59,4 +63,3 @@ button.addEventListener('click', function(event) {
         sendInput(input_value)
         input.value = ''
 })
-

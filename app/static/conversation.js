@@ -5,6 +5,8 @@ const chatboxElement = document.getElementById('chatbox')
 let divclassUser = "d-flex justify-content-end mb-4 "
 let divclassBot = "d-flex justify-content-start mb-4"
 
+let botIntroSuccess = "Laisse-moi partager avec toi ce que j'en ai appris... "
+
 // CREATES DIV CHILD USER INPUT
 export function addUserChatElement (text) {
     const divUser = document.createElement('div')
@@ -24,7 +26,7 @@ export function addChatElement (text) {
 
     const newChatElement = document.createElement('div')
     divBot.appendChild(newChatElement) // adds div child to chatbox parent
-    newChatElement.textContent = text
+    newChatElement.textContent = botIntroSuccess.concat(text)
     newChatElement.setAttribute('id', 'bot_reply') // to get description css
     divBot.className = divclassBot // to get bootstrap
 }
@@ -58,4 +60,16 @@ export function addChatElementMap (latitude, longitude) {
     chatboxElement.appendChild(newChatElementMap) // adds div child to chatbox parent
     newChatElementMap.className = divclassBot
     initMap(longitude, latitude, mapId)
+}
+
+// CREATES DIV CHILD BOT NO ANSWER
+export function addBotNoAnswerElement () {
+    const divBot = document.createElement('div')
+    chatboxElement.appendChild(divBot) // adds div child to chatbox parent
+
+    const noAnswerElement = document.createElement('div')
+    divBot.appendChild(noAnswerElement) // adds div child to chatbox parent
+    noAnswerElement.textContent = "Il me reste tant de contrés à découvrir ..."
+    noAnswerElement.setAttribute('id', 'bot_reply') // to get description css
+    divBot.className = divclassBot // to get bootstrap
 }

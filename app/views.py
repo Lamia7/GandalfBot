@@ -29,18 +29,26 @@ def result():
     user_input = request.get_data('user_input').decode()  # decode unicode
     print(user_input)
 
-    # Get wiki description
+    # Get coordinates
     parser = Parser(user_input)
     geowrapper = GeoWrapper(parser.parsed_input)
-    wikiwrapper = Wikiwrapper()
-    wiki_details = wikiwrapper.get_wiki_info_by_long_lat(geowrapper.longitude, geowrapper.latitude)
 
-    return {
-        "description": wiki_details['description'],
-        "url": wiki_details['url'],
-        "longitude": geowrapper.longitude,
-        "latitude": geowrapper.latitude,
-    }
+    # If coordinates, get wiki infos
+    if (geowrapper.latitude, geowrapper.longitude) != (None, None):
+        wikiwrapper = Wikiwrapper()
+        wiki_details = wikiwrapper.get_wiki_info_by_long_lat(geowrapper.longitude, geowrapper.latitude)
+
+        print(f"WIKI RESULTAT: {wiki_details}")
+        return {
+            "description": wiki_details['description'],
+            "url": wiki_details['url'],
+            "longitude": geowrapper.longitude,
+            "latitude": geowrapper.latitude,
+        }
+    else:
+        print("erroorrrrr")
+        return {"content": "error"}
+
 
 
 
