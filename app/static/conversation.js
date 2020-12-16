@@ -74,3 +74,33 @@ export function addBotNoAnswerElement () {
     noAnswerElement.setAttribute('id', 'bot_reply') // to get description css
     divBot.className = divclassBot // to get bootstrap
 }
+
+// DISPLAYS A SPINNER
+export function addSpinner () {
+    const divBot = document.createElement('div')
+    chatboxElement.appendChild(divBot)
+
+    let spinner = document.createElement('div')
+    divBot.appendChild(spinner)
+    spinner.style.visibility = 'visible'
+    spinner.setAttribute('class', 'spinner spinner-border text-secondary') // class name: spinner and bootstrap details
+}
+
+// HIDES SPINNER
+export function hideSpinner () {
+    // const spinner = document.getElementsByClassName('spinner')
+    // spinner.setAttribute('class', 'spinner spinner-border text-secondary invisible')
+    // document.getElementsByClassName('spinner').style.visibility = 'hidden' // hides the spinner
+    // spinner.style.visibility = 'hidden' // hides the spinner
+    //let spinner = document.querySelectorAll('.spinner')
+    //spinner.style.visibility = 'hidden'
+    // document.querySelectorAll('.spinner spinner-border text-secondary d-flex justify-content-start mb-4').style.visibility = 'hidden'
+
+    let spinnerList = document.getElementsByClassName('spinner')
+    document.getElementsByClassName('spinner')
+    if (spinnerList) {
+        for (let x = 0; x < spinnerList.length; x++) {
+          spinnerList[x].style.visibility = 'hidden'
+        }
+    }
+}

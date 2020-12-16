@@ -1,17 +1,19 @@
 // Module that contains function that listens to submit event and ajax function
-import { addUserChatElement, addChatElement, addChatElementUrl, addChatElementMap, addBotNoAnswerElement } from './conversation.js'
+import { addUserChatElement, addChatElement, addChatElementUrl, addChatElementMap, addBotNoAnswerElement, addSpinner, hideSpinner } from './conversation.js'
 
 // --- AJAX sends input to back --- //
 // Creates function that will post data, takes into params route URL and data to send it to back
 function sendInput(message) {
+    addUserChatElement(message) // Displays user_input to chatbox
+
     let xhr = new XMLHttpRequest();
+    addSpinner() // adds spinner meanwhile Bot finds answer
 
     xhr.open('POST', '/result', message);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify(message));
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) { // or 'this.' to represent 'xhr'
-            addUserChatElement(message) // Displays user_input to chatbox
             // Get infos from response
             let response = JSON.parse(xhr.responseText) // parsing text response from back into JSON
 
@@ -21,12 +23,14 @@ function sendInput(message) {
                 const longitude = response['longitude']
                 const latitude = response['latitude']
 
-                // Bot
+                // Bot replies
                 addChatElement(bot_reply_description) // Displays bot_reply with description to chatbox
                 addChatElementUrl(bot_reply_url) // Displays bot_reply with url to chatbox
                 addChatElementMap(longitude, latitude) // Displays bot_reply with map
+                hideSpinner()
             } else {
                 addBotNoAnswerElement()
+                hideSpinner()
             }
         }
     }
