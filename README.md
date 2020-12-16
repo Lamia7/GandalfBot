@@ -55,13 +55,11 @@ __(HTML)__ : shows reply
 - [x] Retrieve wikimedia API response and send it to front
 - [x] Retrieve map with coordinates according to user's question + tests
 - [x] Display bot replies to chatbox
-
-- [ ] Hide previous response but with scrolling option
+- [x] Hide previous response but with scrolling option
+- [x] Add spinner before bot replies
 
 - [ ] Create partials folder for forms
 - [ ] Add _form.html to partials folder
-- [ ] Improve style (input, responsive, font, sizes...)
-- [ ] Resize avatar image when smaller screen (responsive)
+- [x] Improve style (input, responsive, font, sizes...)
 
-- [ ] Add image as future button (optional)
 - [ ] Use regex optional
