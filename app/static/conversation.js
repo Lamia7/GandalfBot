@@ -88,14 +88,6 @@ export function addSpinner () {
 
 // HIDES SPINNER
 export function hideSpinner () {
-    // const spinner = document.getElementsByClassName('spinner')
-    // spinner.setAttribute('class', 'spinner spinner-border text-secondary invisible')
-    // document.getElementsByClassName('spinner').style.visibility = 'hidden' // hides the spinner
-    // spinner.style.visibility = 'hidden' // hides the spinner
-    //let spinner = document.querySelectorAll('.spinner')
-    //spinner.style.visibility = 'hidden'
-    // document.querySelectorAll('.spinner spinner-border text-secondary d-flex justify-content-start mb-4').style.visibility = 'hidden'
-
     let spinnerList = document.getElementsByClassName('spinner')
     document.getElementsByClassName('spinner')
     if (spinnerList) {
