@@ -2,8 +2,8 @@
 import { Map } from './map.js'
 
 const chatboxElement = document.getElementById('chatbox')
-let divclassUser = "d-flex justify-content-end mb-4 "
-let divclassBot = "d-flex justify-content-start mb-4"
+let divclassUser = "d-flex justify-content-end offset-lg-6 col-lg-6 col-sm-12 offset-sm-0 mb-4"
+let divclassBot = "d-flex justify-content-start mb-4 col-lg-6 col-sm-12"
 
 let botIntroSuccess = "Laisse-moi partager avec toi ce que j'en ai appris... "
 
