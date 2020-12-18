@@ -27,7 +27,7 @@ export class Map {
         tileSize: 512,
         zoomOffset: -1,
         accessToken:
-          "pk.eyJ1IjoibGFtaWE3IiwiYSI6ImNraWl0bG50ejBjemMyc3FwNXpmYjN3ZGEifQ.1-8RIk4lLjGMJLcpWZ4Vyw",
+          "pk.eyJ1IjoibGFtaWE3IiwiYSI6ImNraXVlbWVsaTEzc2gycXNjcG80dGc2ZHQifQ.7aNY9i-9eCEWQ9E8PsnGMg",
       }
     );
 
