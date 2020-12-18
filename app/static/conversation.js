@@ -71,7 +71,7 @@ export function addBotNoAnswerElement() {
 
   const noAnswerElement = document.createElement("div");
   divBot.appendChild(noAnswerElement); // adds div child to chatbox parent
-  noAnswerElement.textContent = "Il me reste tant de contrés à découvrir ...";
+  noAnswerElement.textContent = "Il me reste tant de contrées à découvrir ...";
   noAnswerElement.setAttribute("id", "bot_reply"); // to get description css
   divBot.className = divclassBot; // to get bootstrap
 }
