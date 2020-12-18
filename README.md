@@ -57,9 +57,6 @@ __(HTML)__ : shows reply
 - [x] Display bot replies to chatbox
 - [x] Hide previous response but with scrolling option
 - [x] Add spinner before bot replies
-
-- [ ] Create partials folder for forms
-- [ ] Add _form.html to partials folder
 - [x] Improve style (input, responsive, font, sizes...)
 - [x] Check PEP8 with 'flake8' library and reformat with 'black' library
 
