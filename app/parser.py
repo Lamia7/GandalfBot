@@ -1,6 +1,7 @@
 """
 Module that represents the parser that will analyze the user_input by:
-making it in lower case, removing accents, punctuation and stop words from user_input
+making it in lower case, removing accents,
+punctuation and stop words from user_input
 """
 from unidecode import unidecode
 
@@ -38,6 +39,8 @@ class Parser:
         self.user_input = self.user_input.split()
 
     def get_key_words(self):
-        """Gets only key words that are not in stop words and join them in a string"""
-        key_words = [word for word in self.user_input if word not in STOP_WORDS]
+        """Gets only key words that are not in stop words
+        and join them in a string"""
+        key_words = \
+            [word for word in self.user_input if word not in STOP_WORDS]
         self.user_input = ' '.join(key_words)

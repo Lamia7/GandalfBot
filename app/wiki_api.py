@@ -11,7 +11,8 @@ class Wikiwrapper:
     """Represents the Wikimedia API"""
 
     def get_wiki_info_by_long_lat(self, longitude, latitude):
-        """Gets the title, description and url info from Wiki API according to the given coordinates"""
+        """Gets the title, description and url info from Wiki API
+        according to the given coordinates"""
         payload = {"action": "query",
                    "format": "json",
                    "ggscoord": f"{longitude}|{latitude}",
@@ -29,8 +30,8 @@ class Wikiwrapper:
         if result.status_code == 200:
             json_result = result.json()  # jsonify the results
             if 'query' in json_result:
-                pages = json_result['query']['pages']  # access to pages from result json
-                pages = (list(pages.values()))  # convert values of pages into list of dict
+                pages = json_result['query']['pages']  # access to pages
+                pages = (list(pages.values()))
 
                 # Get the infos needed
                 title = pages[0]['title']  # get title's value from first dict
@@ -46,5 +47,5 @@ class Wikiwrapper:
                 # print(wiki_details)
 
                 return wiki_details
-        else:
-            print(f"Wiki API error occured: {result.status_code}")
+        # else:
+            # print(f"Wiki API error occured: {result.status_code}")

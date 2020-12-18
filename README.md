@@ -61,5 +61,6 @@ __(HTML)__ : shows reply
 - [ ] Create partials folder for forms
 - [ ] Add _form.html to partials folder
 - [x] Improve style (input, responsive, font, sizes...)
+- [x] Check PEP8 with 'flake8' library and reformat with 'black' library
 
 - [ ] Use regex optional
