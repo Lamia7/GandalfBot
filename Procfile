@@ -1,0 +1,1 @@
+web: gunicorn gandalfbot:app --log-file -
