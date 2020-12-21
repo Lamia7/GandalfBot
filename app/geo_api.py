@@ -23,13 +23,15 @@ class GeoWrapper:
         if result.status_code == 200:
             json_result = result.json()  # convert2json
 
-            # choose lat & long from result and store them into variables
-            self.longitude = \
-                json_result['features'][0]['geometry']['coordinates'][1]
-            self.latitude = \
-                json_result['features'][0]['geometry']['coordinates'][0]
-            # print(f"Pour {input}, la longitude est {self.longitude} "
-            # f"et la latitude est {self.latitude}")
+            if len(json_result['features']) > 0:
+
+                # choose lat & long from result and store them into variables
+                self.longitude = \
+                    json_result['features'][0]['geometry']['coordinates'][1]
+                self.latitude = \
+                    json_result['features'][0]['geometry']['coordinates'][0]
+                # print(f"Pour {input}, la longitude est {self.longitude} "
+                # f"et la latitude est {self.latitude}")
 
         # else:
             # print(f"Geo API error occured: {result.status_code}")

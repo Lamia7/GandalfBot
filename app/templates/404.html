@@ -1,32 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link
-      rel="shortcut icon"
-      type="image/png"
-      href="static/assets/favicon.png"
-    />
-    <title>Page introuvable</title>
-  </head>
-  <body>
-    <div class="container-fluid">
-      <h1>Page Not Found</h1>
-      <p>
-        Vous ne passerez pas! GandalfBot n'a pas trouvé cette page à cause d'une
-        erreur 404.
-      </p>
-      <img
-        src="static/assets/404_error_img.jpg"
-        alt="image_404_error"
-        id="image_404_error"
-        width="20%"
-        height="20%"
-      />
-      <p>Finir ? Non, le voyage ne s'achève pas ici...</p>
-      <a href="{{ url_for('index') }}"
-        >Fuyez par ici pour retrouver votre chemin !</a
-      >
+{% extends 'base.html' %} {% block content %}
+
+<div class="page-wrap d-flex flex-row align-items-center">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-12 text-center">
+        <h1>Page introuvable</h1>
+        <p>
+          Vous ne passerez pas! GandalfBot n'a pas trouvé cette page à cause
+          d'une erreur 404.
+        </p>
+        <img
+          src="static/assets/404_error_img.jpg"
+          alt="image_404_error"
+          id="image_404_error"
+          width="50%"
+        />
+        <p>Finir ? Non, le voyage ne s'achève pas ici...</p>
+        <a href="{{ url_for('index') }}"
+          >Fuyez par ici pour retrouver votre chemin !</a
+        >
+      </div>
     </div>
-  </body>
-</html>
+  </div>
+</div>
+{% endblock %}
