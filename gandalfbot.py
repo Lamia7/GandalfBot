@@ -1,3 +1,6 @@
 """Main module"""
 
 from app import app
+
+if __name__ == "__main__":
+    app.run(debug=False)  # True only on dev env

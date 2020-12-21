@@ -1,7 +1,17 @@
-# GandalfBot 
-using Flask
+# GandalfBot 🤖
+[Trello](https://trello.com/b/KUVhH5KI/p7-cr%C3%A9ez-grandpy-bot-le-papy-robot)<br>
+Program only available in French for now.
 
-### Installation and configuration
+***How to play ?***
+
+Click here to try it and enjoy : 🤖 [Let's play](https://gandalf-bot-oc.herokuapp.com/) 👴
+
+### Context
+GandalfBot is a school project to practice the use of Python, Flask, JavaScript and APIs.
+
+Ask him a question about a place and he will look for informations, Wikipedia URL and a map.
+
+### Installation and configuration 💻
 
 **Clone the repository from Github by running this command:**
 ```git clone https://github.com/Lamia7/GandalfBot```
@@ -20,35 +30,37 @@ __(HTML)__ : User asks question on input and submit it <br>
 __(JS)__  : gets (récupère) this input <br>
 __(JS)__ : makes a request to API route to pass it to back-end <br>
 __(PYTHON)__ : API gets/retrieves the JS info  <br>
-__(PYTHON)__ : API sends the request to Wikipedia API <br>
-__(PYTHON)__ : Wikipedia API gives the response to my API's request <br>
+__(PYTHON)__ : API sends the request to Mapbox API <br>
+__(PYTHON)__ : API recieves coordinates with response from Mapbox API <br>
+__(PYTHON)__ : API sends the request containing coordinates to Wikipedia API <br>
+__(PYTHON)__ : Wikipedia API gives the response to my API's request (description and URL)<br>
 __(PYTHON)__ : API recieves response from Wikipedia API <br>
 __(PYTHON)__ : API sends the response to front: JS <br>
 __(JS)__ : sends response to HTML <br>
 __(HTML)__ : shows reply
 
-### Fonctionnalités
-+ Interactions en AJAX : l'utilisateur envoie sa question en appuyant sur entrée et la réponse s'affiche directement dans l'écran, sans recharger la page.
-+ Données via l'API de Google Maps et celle de Media Wiki.
-+ Si l'utilisateur charge de nouveau la page, tout l'historique est perdu, pas de sauvegarde.
-+ Possibilité d'inventer plusieurs réponses différentes de la part de GrandPy mais ce n'est pas une obligation.
+### Features 📋
++ Interactions in AJAX : user sends question by hitting enter or clicking on button and the query is displayed on the screen without refreshing the page.
++ Data retrieved from geolocation API and Media Wiki API.
++ If user refreshes the page, history gets deleted without saving it.
++ Possibility to invent different replies from the Bot, but this is optional.
 
-### Checklist
+### Checklist 📝
 - [x] Initialize flask app
 - [x] Create templates folder for templates organization
 - [x] Create index.html template
-- [x] Add bot presentation with place for picture and title 
+- [x] Add bot presentation with place for picture and title
 - [x] Create base.html in template folder and structure block extends
 - [x] Add footer with name and github link
 - [x] Create static folder for style organisation
 - [x] Add image as bot avatar
-- [x] Add form input text field for the questions 
-- [x] Add input button to send questions 
+- [x] Add form input text field for the questions
+- [x] Add input button to send questions
 - [x] Add social network icons
 - [x] Add style for elements on index template
 - [x] Add style link to base.html
 - [x] Add route to access with POST method (when question is submitted)
-- [x] Get question asked (from front to back-end) 
+- [x] Get question asked (from front to back-end)
 - [x] Add parser to analyze question + tests
 - [x] Make request to wikimedia API + tests
 - [x] Use parser on user_input
@@ -59,5 +71,27 @@ __(HTML)__ : shows reply
 - [x] Add spinner before bot replies
 - [x] Improve style (input, responsive, font, sizes...)
 - [x] Check PEP8 with 'flake8' library and reformat with 'black' library
+- [x] Added html page (for error 404)
 
-- [ ] Use regex optional
+### Ressources used to create this program 🔧
+***BACK***
+- Language : Python 3.7
+- Framework : Flask
+- Testing library : pytest
+
+***FRONT***
+- Languages : Javascript, HTML5 & CSS3
+- Frameworks : Bootstrap 4, jQuery
+
+***EXTERNAL RESSOURCES***
+- [Mapbox API](https://www.mapbox.com/)
+- [MediaWiki/Wikipedia API](https://www.mediawiki.org/wiki/MediaWiki)
+- Map provider : [Leaflet](https://leafletjs.com/)
+- Icons : [Flaticon](https://www.flaticon.com/)
+
+- Web server /  HTTP server : [Gunicorn](https://gunicorn.org/)
+
+And a lot of research ...
+
+### Author 📝
+[Lamia EL RALIMI](https://github.com/Lamia7)
