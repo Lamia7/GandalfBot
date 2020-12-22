@@ -4,7 +4,7 @@ Configuration file to optimize other files
 
 import os
 
-# -- WIKI API -- #
+# -- GEO API: Mapbox -- #
 GEO_API_URL = "https://api.mapbox.com/geocoding/v5/mapbox.places/"
 GEO_TOKEN = os.environ.get("GEOLOC_TOKEN")
 

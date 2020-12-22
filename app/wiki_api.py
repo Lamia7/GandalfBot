@@ -19,7 +19,7 @@ class Wikiwrapper:
                    "generator": "geosearch",
                    "prop": "extracts|info",
                    "explaintext": True,  # convert HTML to plain text
-                   "exsentences": 3,  # how sentences to return
+                   "exsentences": 3,  # how many sentences to return
                    "inprop": "url",  # get url (added info to prop for this)
                    }
 
@@ -44,8 +44,5 @@ class Wikiwrapper:
                     "description": description,
                     "url": url
                 }
-                # print(wiki_details)
 
                 return wiki_details
-        # else:
-            # print(f"Wiki API error occured: {result.status_code}")

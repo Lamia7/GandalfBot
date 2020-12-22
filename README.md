@@ -21,7 +21,7 @@ Ask him a question about a place and he will look for informations, Wikipedia UR
 Create a virtual environment: `virtualenv -p python3.7 venv` <br>
 Activate the virtual environment: `source venv/bin/activate` <br>
 _Install all the libraries through the requirements file: `pip3 install -r requirements.txt` <br>_
-Run the application: `python3 GandalfBot/gandalfbot.py`
+Run the application: `flask run` and go to your localhost : `http://127.0.0.1:5000/`
 
 (To deactivate the virtual environment, run this command: `deactivate`)
 
@@ -70,8 +70,9 @@ __(HTML)__ : shows reply
 - [x] Hide previous response but with scrolling option
 - [x] Add spinner before bot replies
 - [x] Improve style (input, responsive, font, sizes...)
-- [x] Check PEP8 with 'flake8' library and reformat with 'black' library
 - [x] Added html page (for error 404)
+- [x] Check PEP8 with 'flake8' library and reformat with 'black' library
+- [x] Format HTML, CSS and JS files
 
 ### Ressources used to create this program 🔧
 ***BACK***
